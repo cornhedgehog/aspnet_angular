@@ -1,0 +1,19 @@
+<div *ngIf="product != null">
+  <h2>{{product.Name}}</h2>
+  <div>
+    <label>id: </label>{{product.ID}}</div>   
+  <div>
+    <label>Название: </label>
+    <input [(ngModel)]="product.Name" placeholder="name" />
+    <br/>
+    <!-- <label>Описание: </label> 
+    <input [(ngModel)]="product.Description" placeholder="desc" /></div>
+    <br/>
+    <label>Цена: </label> 
+    <input [(ngModel)]="product.Price" placeholder="Price" /></div> -->
+   <!-- <label>Категория: </label> 
+    <input [(ngModel)]="product.Category" placeholder="cat" /></div> -->
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
