@@ -66,10 +66,6 @@
         <EntityContainer Name="AnaelleDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="AnaelleDbModel.Category" />
           <EntitySet Name="Products" EntityType="AnaelleDbModel.Product" />
-          <AssociationSet Name="FK_Category_Category" Association="AnaelleDbModel.FK_Category_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Category1" EntitySet="Categories" />
-          </AssociationSet>
           <AssociationSet Name="FK_Product_Category" Association="AnaelleDbModel.FK_Product_Category">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Product" EntitySet="Products" />
@@ -94,18 +90,6 @@
           <Property Name="Available" Type="Boolean" Nullable="false" />
           <Property Name="Category" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Category_Category">
-          <End Type="AnaelleDbModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="AnaelleDbModel.Category" Role="Category1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Category1">
-              <PropertyRef Name="ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Product_Category">
           <End Type="AnaelleDbModel.Category" Role="Category" Multiplicity="1" />
           <End Type="AnaelleDbModel.Product" Role="Product" Multiplicity="*" />

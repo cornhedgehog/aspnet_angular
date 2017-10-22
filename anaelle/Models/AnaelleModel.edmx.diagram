@@ -7,7 +7,6 @@
       <Diagram DiagramId="65832e3777f241e086adee244dc90f6b" Name="Diagram1">
         <EntityTypeShape EntityType="AnaelleDbModel.Category" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="AnaelleDbModel.Product" Width="1.5" PointX="3" PointY="1" />
-        <AssociationConnector Association="AnaelleDbModel.FK_Category_Category" />
         <AssociationConnector Association="AnaelleDbModel.FK_Product_Category" />
       </Diagram>
     </edmx:Diagrams>

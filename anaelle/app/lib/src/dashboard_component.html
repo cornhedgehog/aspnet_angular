@@ -1,8 +1,8 @@
 <h3>Список товаров</h3>
 <div class="grid grid-pad">  
-  <a *ngFor="let product of products"  [routerLink]="['ProductDetail', {id: product.ID.toString()}]"  class="col-1-4">
+  <a *ngFor="let product of products"  [routerLink]="['ProductDetail', {id: product.id.toString()}]"  class="col-1-4">
     <div class="module product">   
-      <h4>{{product.Name}}</h4> 
+      <h4>{{product.name}}</h4> 
     </div> 
   </a>
 </div>

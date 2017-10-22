@@ -54,6 +54,7 @@ namespace anaelle.Controllers
 
         // POST api/Product - создаём новый продукт        
         [ResponseType(typeof(Product))]
+        [HttpPost]
         public IHttpActionResult Post(Product product)
         {
             if (ModelState.IsValid)
@@ -70,6 +71,7 @@ namespace anaelle.Controllers
 
         // PUT api/Product - изменяем продукт
         [ResponseType(typeof(Product))]
+        [HttpPut]
         public IHttpActionResult Put(Product product)
         {
             if (product == null)
@@ -91,13 +93,13 @@ namespace anaelle.Controllers
             }          
         }
 
-        // DELETE api/Product - удаляем продукт        
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult Delete(Product product)
+        // DELETE api/Product - удаляем продукт
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
             if (ModelState.IsValid)
             {
-                var productToDelete = db.Products.Where(p => p.ID == product.ID).FirstOrDefault<Product>();
+                var productToDelete = db.Products.Where(p => p.ID == id).FirstOrDefault<Product>();
                 if (productToDelete != null)
                 {
                     db.Products.Remove(productToDelete);

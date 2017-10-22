@@ -1,26 +1,36 @@
 <h2>Товары</h2>
-<div>
-  <label>Название: </label> <input #productName />
-  <br/>
-  <label>Описание: </label> <input #productDesc />
-  <br/>
-  <label>Цена: </label> <input #productPrice />
-  <button (click)="add(productName.value, productDesc.value, productPrice.value); productName.value=''">
-    Add
-  </button>
-</div>
 <ul class="products">
   <li *ngFor="let product of products" (click)="onSelect(product)"
       [class.selected]="product === selectedProduct">
-    <span class="badge">{{product.ID}}</span>
-    <span>{{product.Name}}</span>
+    <span class="badge">{{product.id}}</span>
+    <span>{{product.name}}</span>
     <button class="delete"
       (click)="delete(product); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedProduct != null">
   <h2>
-    {{selectedProduct.Name | uppercase}} выбранный товар
+    Вы выбрали: {{selectedProduct.name | uppercase}}
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail()">Подробнее о товаре</button>
 </div>
+<div>
+    <label>Добавить новый товар:</label> <br/>
+    
+    <label>Название: </label> <br/>
+    <input #productName /> <br/>
+    <label>Описание: </label> <br/> 
+    <input #productDesc /> <br/>
+    <label>Цена: </label> <br/>
+    <input #productPrice /> <br/>
+    <select #categorySelect required>
+      <option *ngFor="let category of categories" [value]="category.id" >      
+        {{category.name}}
+      </option>
+  </select> <br/>
+  <input type="checkbox" [checked]="productAvailable" (change)="productAvailable = !productAvailable">Доступен<br/>
+    <button (click)="add(productName.value, productDesc.value, productPrice.value, categorySelect.value); 
+    productName.value=''">
+      Добавить
+    </button>
+  </div>

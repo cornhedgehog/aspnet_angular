@@ -1,10 +1,4 @@
 <h2>Товары</h2>
-<div>
-  <label>Название:</label> <input #productName />
-  <button (click)="add(productName.value); productName.value=''">
-    Add
-  </button>
-</div>
 <ul class="products">
   <li *ngFor="let product of products" (click)="onSelect(product)"
       [class.selected]="product === selectedProduct">
@@ -16,7 +10,25 @@
 </ul>
 <div *ngIf="selectedProduct != null">
   <h2>
-    {{selectedProduct.Name | uppercase}} выбранный товар
+    Вы выбрали: {{selectedProduct.name | uppercase}}
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail()">Подробнее о товаре</button>
 </div>
+<div>
+    <label>Добавить новый товар:</label> <br/>
+    
+    <label>Название: </label> <br/>
+    <input #productName /> <br/>
+    <label>Описание: </label> <br/> 
+    <input #productDesc /> <br/>
+    <label>Цена: </label> <br/>
+    <input #productPrice /> <br/>
+    <select id="category" required>
+      <option *ngFor="let category of categories" [value]="category">      
+        {{category.name}}
+      </option>
+  </select> <br/>
+    <button (click)="add(productName.value, productDesc.value, productPrice.value); productName.value=''">
+      Добавить
+    </button>
+  </div>

@@ -11,8 +11,8 @@ import '../lib/src/product_detail_component.dart';
   template: '''
       <h1>{{title}}</h1>
       <nav>
-        <a [routerLink]="['Dashboard']">Dashboard</a>
-        <a [routerLink]="['Products']">Products</a>
+        <a [routerLink]="['Dashboard']">Главная</a>
+        <a [routerLink]="['Products']">Товары</a>
       </nav>
       <router-outlet></router-outlet>''',
   styleUrls: const ['app_component.css'],
@@ -22,7 +22,7 @@ import '../lib/src/product_detail_component.dart';
 @RouteConfig(const [
   const Route(
       path: '/dashboard',
-      name: 'Dashboard',
+      name: 'Dashboard',      
       component: DashboardComponent,
       useAsDefault: true),
   const Route(
